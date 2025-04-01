@@ -44,15 +44,18 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-function getTimestamp() {
+function getFormattedDate() {
     const currentDate = new Date();
-    return currentDate.toISOString(); // Devuelve la fecha y hora en formato ISO
+    const day = String(currentDate.getDate()).padStart(2, '0'); // Día con 2 dígitos
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Mes con 2 dígitos
+    const year = currentDate.getFullYear();
+    return `${day}/${month}/${year}`; // Formato DD/MM/YYYY
 }
 //----------------------------------------------------------------------------------------------------------------------------------
 //Tiempo
 document.addEventListener("DOMContentLoaded", function() {
     const timestampInput = document.getElementById("timestamp");
-    timestampInput.value = getTimestamp(); // Establece la marca de tiempo en el input oculto
+    timestampInput.value = getFormattedDate(); // Establecer la fecha en formato DD/MM/YYYY
 });
 
 //----------------------------------------------------------------------------------------------------------------------------------
